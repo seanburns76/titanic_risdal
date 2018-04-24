@@ -12,3 +12,4 @@ test <- read.csv('C:/Users/SeaBur/Documents/GitProjects/titanic_risdal/test.csv'
 
 full <- bind_rows(train,test)
 str(full)
+head(full)
