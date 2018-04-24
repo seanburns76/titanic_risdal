@@ -6,6 +6,9 @@ library(scales)
 library(dplyr)
 library(randomForest)
 library(mice)
+install.packages("RODBC")
+library(RODBC)
+
 
 train <- read.csv('C:/Users/SeaBur/Documents/GitProjects/titanic_risdal/train.csv',stringsAsFactors = F)
 test <- read.csv('C:/Users/SeaBur/Documents/GitProjects/titanic_risdal/test.csv',stringsAsFactors = F)
