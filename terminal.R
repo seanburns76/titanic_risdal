@@ -38,3 +38,13 @@ ggplot(full[1:891,],aes(x=Fsize,fill = factor(Survived))) +
       scale_x_continuous(breaks = c(1:11)) + 
         labs(x='Family Size') +
           theme_few()
+
+full$FsizeD[full$Fsize == 1] <- 'singleton'
+full$FsizeD[full$Fsize < 5 & full$Fsize > 1] <- 'small'
+full$FsizeD[full$Fsize > 4] <- 'large'
+
+mosaicplot(table(full$FsizeD,full$Survived),main = 'Family Size by Survival', shade = T)
+
+hist(full$Fare,breaks = "Sturges", xlim = c(0,100),include.lowest = F)
+
+hist(full$Fare,full$Survived=1)
