@@ -48,6 +48,13 @@ full$FsizeD[full$Fsize > 4] <- 'large'
 
 mosaicplot(table(full$FsizeD,full$Survived),main = 'Family Size by Survival', shade = T)
 
-hist(full$Fare,breaks = "Sturges", xlim = c(0,100),include.lowest = F)
+full$Cabin[1:28]
+strsplit(full$Cabin[2],NULL)[[1]]
 
-hist(full$Fare,full$Survived=1)
+full[c(62,830),'Embarked']
+subset(full,'Survived' = 1)
+str(full)
+full[full$Survived = 0,]
+full[,'Embarked']
+full[full$Fare > 500,]
+table(full$Sex,full$Survived)
