@@ -58,3 +58,23 @@ full[full$Survived = 0,]
 full[,'Embarked']
 full[full$Fare > 500,]
 table(full$Sex,full$Survived)
+
+embark_fare <- full %>% filter(PassengerId !=62 & PassengerId != 830)
+
+ggplot(embark_fare,aes(x=Embarked,y= Fare,fill = factor(Pclass))) + 
+  geom_boxplot() + 
+  geom_hline(aes(yintercept=80),
+             colour='red',linetype='dashed',lwd=2) + 
+  scale_y_continuous(labels=dollar_format()) +
+  theme_few()
+
+full$Embarked[c(62,830)] <- 'C'
+
+full[1044,]
+
+ggplot(full[full$Pclass == '3' & full$Embarked == 'S', ],
+       aes(x=Fare)) +
+      geom_density(fill = '#99d6ff',alpha=0.4) + 
+      geom_vline(aes(xintercept=median(Fare,na.rm = T)),
+      colour= 'red', linetype='dashed',lwd=1) + 
+      scale_x_continuous(labels=dollar_format()) + theme_few()
